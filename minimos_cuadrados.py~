@@ -116,5 +116,4 @@ for x in elementosEnBinario:
 # for x in nuevosElementos:
 # 	if nuevosElementos.next is None:
 # 		print x, nuevosElementos.next
-#Prueba para cambio
 
