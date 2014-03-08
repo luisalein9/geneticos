@@ -20,9 +20,9 @@ def f(b1,b2,x):
 
 def generaPoblacionInicial():
 	arrayB1 = np.random.uniform(105, 225, size=2)
-	print "arrayB1", arrayB1
+	#print "arrayB1", arrayB1
 	arrayB2 = np.random.uniform(105, 225, size=2)
-	print "arrayB2", arrayB2
+	#print "arrayB2", arrayB2
 	return zip(arrayB1, arrayB2)
 
 def convierteABinario(poblacion):
@@ -97,7 +97,7 @@ def regresaBinariosEnTuplas(distanciasEnBinario):
  # aproximados al minimo y al maximo valor de y de entre todos
  # los valores de y en la tabla del problema
 poblacionInicial = generaPoblacionInicial()
-#print poblacionInicial
+print poblacionInicial
 
 # El metodo soguiente recibe la pobalcion inicial para posteriormente regresar las distancias  de cada uno de los
 # elementos de la poblacion inicial con respecto de los puntos del problema
@@ -112,6 +112,13 @@ elementosEnBinario = convierteABinario(poblacionInicial)
 
 elementosOrdenadosPorDistancias = funcionFitness.funcionDeFitness(poblacionInicial, distPorElementos)
 print elementosOrdenadosPorDistancias
+elementosOrdenadosEnBinario = convierteABinario(elementosOrdenadosPorDistancias)
+print elementosOrdenadosEnBinario
+
+
+# elementosOrdenadosEnBinario = calculaMinimosCuadrados(elementosOrdenadosPorDistancias)
+# elementosOrdenadosEnBinario = convierteABinario(elementosOrdenadosEnBinario)
+
 # Este metodo ordena en una matriz de tuplas los elementos partidos por la mitad de su representacion bianria
 #nuevosElementos = regresaBinariosEnTuplas(elementosEnBinario)
 #print nuevosElementos
