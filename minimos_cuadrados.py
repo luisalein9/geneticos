@@ -4,6 +4,8 @@ import scipy as sp
 from pylab import *
 import math
 import struct
+import funcionFitness
+
 
 #Esta es la array que contienen el problema principal, la idea es encontrar la recta que mejor se acerque a estos puntos, a todos!!
 dataArray = ((109,1),(149,2),(149,3),(191,5),(213,7),(224,10))
@@ -105,10 +107,11 @@ print distPorElementos
 # Este metodo convierte los elementos en su representacion  binaria y los regresa a una matriz 
 elementosEnBinario = convierteABinario(poblacionInicial)
 #print elementosEnBinario
-for x in elementosEnBinario:
-	print x[0][0], x[0][1], x[1][0], x[1][1]
+# for x in elementosEnBinario:
+# 	print x[0][0], x[0][1], x[1][0], x[1][1]
 
-
+elementosOrdenadosPorDistancias = funcionFitness.funcionDeFitness(poblacionInicial, distPorElementos)
+print elementosOrdenadosPorDistancias
 # Este metodo ordena en una matriz de tuplas los elementos partidos por la mitad de su representacion bianria
 #nuevosElementos = regresaBinariosEnTuplas(elementosEnBinario)
 #print nuevosElementos
