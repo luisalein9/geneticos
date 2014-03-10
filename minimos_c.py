@@ -49,7 +49,7 @@ def convierteABinario(poblacion):
 		value.append(bin(int(stringFromFloatOnR)))
 		componenteY.append(value)
 		
-		
+
 		# componenteY.append(binary(x[1]))
 		# print componenteX, componenteY
 	#print componenteX, componenteY
@@ -108,6 +108,7 @@ print distPorElementos
 
 # Este metodo convierte los elementos en su representacion  binaria y los regresa a una matriz 
 elementosEnBinario = convierteABinario(poblacionInicial)
+#aquí mando a llamar mi funcion
 elmentosCruza= cruza.cruzaPob(elementosEnBinario)
 #print elementosEnBinario
 # for x in elementosEnBinario:

@@ -40,7 +40,7 @@ def cruzaDec(decimal1, decimal2,posiciones):
 	pos1=len(decimal1)-int(posiciones)
 	pos2=len(decimal2)-int(posiciones)
 
-	if pos > 0 & pos < 8 :
+	if pos > 0 & pos < pos1 & pos < pos2 :
 		p1decimal1=decimal1[0:pos1]
 		p2decimal1=decimal1[pos1:len(decimal1)]
 		p1decimal2=decimal2[0:pos2]
@@ -59,15 +59,16 @@ def cruzaPob(poblaciones):
 	x2=""
 	y1=""
 	y2=""
-	listaFin=[];
+	listaFin=[]
+	listaFin1=[]
+	listaFin2=[]
+	tuplaF=[]
 	#Tomo tupla por tupla los elementos de la poblacion
 	for poblacion in poblaciones:
-		print type(poblacion)
 		#Defino el numero de posiciones que cruzare
 		posicion=randomT(poblacion);
-
-		print poblacion
 		print posicion
+
 		for (x, y) in poblacion:
 
 			if x1 =="" :
@@ -82,18 +83,21 @@ def cruzaPob(poblaciones):
 				lista1=cruzaEnt(x1, x2, posicion)
 				lista2=cruzaDec(y1, y2, posicion)
 
-				print "los nuevo valores enteros son => ", lista1, " <= decimales => ", lista2
-				tuplaF= (lista1,lista2)
-				listaFin.append(tuplaF)
+				l1T=[lista1[0],lista2[0]]
+				l2T=[lista1[1],lista2[1]]
+
+				listaFin1.append(l1T)
+				listaFin2.append(l2T)
 				x1=""
 				x2=""
 				y1=""
 				y2=""
 
 
-	   		print '*********************'
+	listaFin=zip(listaFin1, listaFin2)
 
-   		print "La lista final es => ", listaFin
-   		print "La lista inicial es => ", poblaciones
 
-	return poblacion
+	print "La lista final es => ", listaFin
+	print "La lista inicial es => ", poblaciones
+
+	return listaFin
