@@ -108,6 +108,8 @@ distPorElementos = calculaMinimosCuadrados(poblacionInicial)
 dummyArreglo = funcionRuleta.funcRuleta(distPorElementos, poblacionInicial)
 print dummyArreglo
 
+
+
 # # Este metodo convierte los elementos en su representacion  binaria y los regresa a una matriz 
 # elementosEnBinario = convierteABinario(poblacionInicial)
 # #print elementosEnBinario
