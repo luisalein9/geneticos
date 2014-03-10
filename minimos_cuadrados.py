@@ -5,6 +5,10 @@ from pylab import *
 import math
 import struct
 import funcionFitness
+import cruza
+import random
+import mutacion
+
 
 
 #Esta es la array que contienen el problema principal, la idea es encontrar la recta que mejor se acerque a estos puntos, a todos!!
@@ -97,12 +101,12 @@ def regresaBinariosEnTuplas(distanciasEnBinario):
  # aproximados al minimo y al maximo valor de y de entre todos
  # los valores de y en la tabla del problema
 poblacionInicial = generaPoblacionInicial()
-print poblacionInicial
+#print poblacionInicial
 
 # El metodo soguiente recibe la pobalcion inicial para posteriormente regresar las distancias  de cada uno de los
 # elementos de la poblacion inicial con respecto de los puntos del problema
 distPorElementos = calculaMinimosCuadrados(poblacionInicial)
-print distPorElementos
+#print distPorElementos
 
 # Este metodo convierte los elementos en su representacion  binaria y los regresa a una matriz 
 elementosEnBinario = convierteABinario(poblacionInicial)
@@ -111,10 +115,14 @@ elementosEnBinario = convierteABinario(poblacionInicial)
 # 	print x[0][0], x[0][1], x[1][0], x[1][1]
 
 elementosOrdenadosPorDistancias = funcionFitness.funcionDeFitness(poblacionInicial, distPorElementos)
-print elementosOrdenadosPorDistancias
+#print elementosOrdenadosPorDistancias
 elementosOrdenadosEnBinario = convierteABinario(elementosOrdenadosPorDistancias)
-print elementosOrdenadosEnBinario
+#print elementosOrdenadosEnBinario
 
+
+elementosCruza= cruza.cruzaPob(elementosEnBinario)
+#print elmentosCruza
+mutacion.muta(elementosCruza)
 
 # elementosOrdenadosEnBinario = calculaMinimosCuadrados(elementosOrdenadosPorDistancias)
 # elementosOrdenadosEnBinario = convierteABinario(elementosOrdenadosEnBinario)

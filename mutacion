@@ -1,0 +1,15 @@
+import random
+ 
+def muta(poblacion)
+ 
+    probabilidadMutacion = .4
+    for i in poblacion:
+        for e in i:
+            for a in e:
+                for ind in range(len(a)):
+                    rand = random.random()
+                    if rand<probabilidadMutacion:
+                        if a[ind]=="0":
+                            a[ind] = a[:ind]+"1"+a[ind+1:]
+                        else:
+                            a[ind] = a[:ind]+"0"+a[ind+1:]
