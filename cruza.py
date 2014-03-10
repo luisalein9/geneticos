@@ -1,11 +1,7 @@
 
 import random
+import pivote
 
-def randomT(poblacion):
-	print 'la tupla es ', poblacion
-	x=random.randint(0, 8)
-
-	return x
 
 def long8(cadena):
 
@@ -65,10 +61,7 @@ def cruzaPob(poblaciones):
 	tuplaF=[]
 	#Tomo tupla por tupla los elementos de la poblacion
 	for poblacion in poblaciones:
-		#Defino el numero de posiciones que cruzare
-		posicion=randomT(poblacion);
-		print posicion
-
+		
 		for (x, y) in poblacion:
 
 			if x1 =="" :
@@ -80,8 +73,13 @@ def cruzaPob(poblaciones):
 				x2=long8(x)
 				y2=y
 
-				lista1=cruzaEnt(x1, x2, posicion)
-				lista2=cruzaDec(y1, y2, posicion)
+				l1PV=[x1,y1]
+				l2PV=[x2,y2]
+				#Defino el numeross de posiciones que cruzare
+				posicion=pivote.regresapivote(l1PV,l2PV)
+
+				lista1=cruzaEnt(x1, x2, posicion[0])
+				lista2=cruzaDec(y1, y2, posicion[1])
 
 				l1T=[lista1[0],lista2[0]]
 				l2T=[lista1[1],lista2[1]]
