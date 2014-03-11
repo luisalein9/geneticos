@@ -1,7 +1,7 @@
 import random
  
 def muta(poblacion):
-    print poblacion
+    #print poblacion
     probabilidadMutacion = .1
     for i in range(len(poblacion)):
         for e in range(len(poblacion[i])):
@@ -16,6 +16,7 @@ def muta(poblacion):
                             poblacion[i][e][a] = poblacion[i][e][a][:ind]+"1"+poblacion[i][e][a][ind+1:]
                         else:
                             poblacion[i][e][a] = poblacion[i][e][a][:ind]+"0"+poblacion[i][e][a][ind+1:]
+    return poblacion
 
     # for i in poblacion:
     #     print i[0][0], i[0][1]
@@ -31,4 +32,4 @@ def muta(poblacion):
     #                 x = "0"
     #                 print "Cambio 1 por 0"
     #     print i
-    print poblacion
+    #print poblacion
