@@ -95,7 +95,7 @@ def cruzaPob(poblaciones):
 	listaFin=zip(listaFin1, listaFin2)
 
 
-	print "La lista final es => ", listaFin
-	print "La lista inicial es => ", poblaciones
+	#print "La lista final es => ", listaFin
+	#print "La lista inicial es => ", poblaciones
 
 	return listaFin

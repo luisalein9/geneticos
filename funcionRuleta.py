@@ -7,7 +7,7 @@ def funcRuleta(distanciasTotales,poblacioninicial):
 	probabilidades = []
 	arregloParticiones = []
 
-	print poblacioninicial
+	#print poblacioninicial
 
 	for x in distanciasTotales:
 		aptitudTotal = aptitudTotal + x
@@ -25,11 +25,11 @@ def funcRuleta(distanciasTotales,poblacioninicial):
 	
 
 	arregloDeElegidos = []
-	print arregloParticiones
+	#print arregloParticiones
 
 	for item in range(0,2):
 		r = np.random.uniform(0,1)
-		print r
+		#print r
 		elElegido = 0
 		for x in zip(arregloParticiones, poblacioninicial):
 		 	if(r<x[0]):
@@ -41,9 +41,9 @@ def funcRuleta(distanciasTotales,poblacioninicial):
 		 		break
 
 
-	print poblacioninicial
-	print arregloParticiones
-	print elElegido
+	#print poblacioninicial
+	#print arregloParticiones
+	#print elElegido
 	#print arregloParticiones
 	#print arregloDeElegidos
 

@@ -23,9 +23,9 @@ def f(b1,b2,x):
 	return b1*(1-exp((-b2)*x))
 
 def generaPoblacionInicial():
-	arrayB1 = np.random.uniform(105, 225, size=2)
+	arrayB1 = np.random.uniform(0, 225, size=100)
 	#print "arrayB1", arrayB1
-	arrayB2 = np.random.uniform(105, 225, size=2)
+	arrayB2 = np.random.uniform(0, 225, size=100)
 	#print "arrayB2", arrayB2
 	return zip(arrayB1, arrayB2)
 
@@ -101,28 +101,63 @@ def regresaBinariosEnTuplas(distanciasEnBinario):
  # aproximados al minimo y al maximo valor de y de entre todos
  # los valores de y en la tabla del problema
 poblacionInicial = generaPoblacionInicial()
-#print poblacionInicial
-
-# El metodo soguiente recibe la pobalcion inicial para posteriormente regresar las distancias  de cada uno de los
-# elementos de la poblacion inicial con respecto de los puntos del problema
-distPorElementos = calculaMinimosCuadrados(poblacionInicial)
-#print distPorElementos
-
-# Este metodo convierte los elementos en su representacion  binaria y los regresa a una matriz 
-elementosEnBinario = convierteABinario(poblacionInicial)
-#print elementosEnBinario
-# for x in elementosEnBinario:
-# 	print x[0][0], x[0][1], x[1][0], x[1][1]
-
-elementosOrdenadosPorDistancias = funcionFitness.funcionDeFitness(poblacionInicial, distPorElementos)
-#print elementosOrdenadosPorDistancias
-elementosOrdenadosEnBinario = convierteABinario(elementosOrdenadosPorDistancias)
-#print elementosOrdenadosEnBinario
+print "Poblacion Inicial", poblacionInicial
 
 
-elementosCruza= cruza.cruzaPob(elementosEnBinario)
-#print elmentosCruza
-mutacion.muta(elementosCruza)
+for cont in range(0,10):
+	# El metodo soguiente recibe la pobalcion inicial para posteriormente regresar las distancias  de cada uno de los
+	# elementos de la poblacion inicial con respecto de los puntos del problema
+	distPorElementos = calculaMinimosCuadrados(poblacionInicial)
+	print "Distancia Por Elementos", distPorElementos
+
+	# Este metodo convierte los elementos en su representacion  binaria y los regresa a una matriz 
+	elementosEnBinario = convierteABinario(poblacionInicial)
+	print "Elementos En Binario", elementosEnBinario
+	# for x in elementosEnBinario:
+	# 	print x[0][0], x[0][1], x[1][0], x[1][1]
+
+
+
+
+	elementosOrdenadosPorDistancias = funcionFitness.funcionDeFitness(poblacionInicial, distPorElementos)
+	print "Elementos Ordenados Por Distancias", elementosOrdenadosPorDistancias
+
+
+	elementosOrdenadosEnBinario = convierteABinario(elementosOrdenadosPorDistancias)
+	print "Elementos Ordenados En Binario", elementosOrdenadosEnBinario
+
+
+	elementosCruza = cruza.cruzaPob(elementosEnBinario)
+	print "Elementos de la Cruza", elementosCruza
+
+
+	elementosPorMutacion = mutacion.muta(elementosCruza)
+	print "Elementos depues de la Mutacion", elementosPorMutacion
+
+	arregloDeReturn = []
+
+	for i in elementosPorMutacion:
+		print i
+		b1 = int (i[0][0],2)
+		b2 = int (i[0][1],2)
+		b3 = int (i[1][0],2)
+		b4 = int (i[1][1],2)
+
+		mystring1 = str(b1)+"."+str(b2)
+		myFloat1 = float(mystring1)
+		mystring2 = str(b3)+"."+str(b4)
+		myFloat2 = float(mystring2)
+
+		miTupla = (myFloat1, myFloat2)
+
+		arregloDeReturn.append(miTupla)
+		
+
+	poblacionInicial = arregloDeReturn
+	print poblacionInicial
+
+
+
 
 # elementosOrdenadosEnBinario = calculaMinimosCuadrados(elementosOrdenadosPorDistancias)
 # elementosOrdenadosEnBinario = convierteABinario(elementosOrdenadosEnBinario)

@@ -8,8 +8,8 @@ def regresapivote(padre, madre):
 	mad = madre[1]
 	
 	#elimina la cadena 0b del inicio de las cadenas binarias
-	#pad = pad[2:len(padre[1])]
-	#mad = mad[2:len(madre[1])]
+	pad = pad[2:len(padre[1])]
+	mad = mad[2:len(madre[1])]
 	
 	pivotes = []
 	
