@@ -2,17 +2,20 @@ import random
  
 def muta(poblacion):
     print poblacion
-    probabilidadMutacion = 0.4
-    for i in poblacion:
-        for e in i:
-            for a in e:
-                for ind in range(len(a)):
+    probabilidadMutacion = .1
+    for i in range(len(poblacion)):
+        for e in range(len(poblacion[i])):
+            for a in range(len(poblacion[i][e])):
+                for ind in range(len(poblacion[i][e][a])):
+
+                    if(ind==0 or ind ==1):
+                        continue
                     rand = random.random()
                     if (rand<probabilidadMutacion):
-                        if (a[ind]=="0"):
-                            a = a[:ind]+"1"+a[ind+1:]
+                        if (poblacion[i][e][a][ind]=="0"):
+                            poblacion[i][e][a] = poblacion[i][e][a][:ind]+"1"+poblacion[i][e][a][ind+1:]
                         else:
-                            a = a[:ind]+"0"+a[ind+1:]
+                            poblacion[i][e][a] = poblacion[i][e][a][:ind]+"0"+poblacion[i][e][a][ind+1:]
 
     # for i in poblacion:
     #     print i[0][0], i[0][1]
